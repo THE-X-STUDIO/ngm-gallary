@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NGMA | National Gallery of Modern Art</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script>
+    (function(){if(sessionStorage.getItem('pageTransition')==='true'){document.documentElement.classList.add('pt-active');}})();
+  </script>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader-logo">
+      <span>ng</span>
+      <span>ma</span>
+    </div>
+    <div class="preloader-bar-track">
+      <div class="preloader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-links">
+      <a href="index.html" class="active">Story</a>
+      <a href="collection.html" data-link>Collection</a>
+      <a href="artists.html" data-link>Artists</a>
+      <a href="visit.html" data-link>Visit</a>
+    </div>
+    <div class="nav-logo">NGMA</div>
+    <div class="nav-right">
+      <a href="#">Shop</a>
+      <a href="#">Donate</a>
+    </div>
+    <button class="hamburger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="index.html" data-link>Story</a>
+    <a href="collection.html" data-link>Collection</a>
+    <a href="artists.html" data-link>Artists</a>
+    <a href="visit.html" data-link>Visit</a>
+    <div class="mob-secondary">
+      <a href="#">Shop</a>
+      <a href="#">Donate</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg-wrapper">
+        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=2000" alt="Hero Art" class="hero-img parallax-img" />
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-title-container">
+        <h1 class="reveal-text">ng</h1>
+        <h1 class="reveal-text" style="margin-top: -0.12em;">ma</h1>
+        <div class="hindi-title reveal-text">&#x917; &#x92E;&#x93E;</div>
+      </div>
+
+      <div class="hero-footer">
+        <a href="visit.html" class="tickets-link" data-link>Tickets &#8599;</a>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="intro">
+      <div class="intro-branding reveal-up">
+        <span class="logo-sm">ngma</span>
+        <p>National Gallery of Modern Art</p>
+      </div>
+      <h2 class="reveal-up">
+        The National Gallery of Modern Art is India's premier art institution for modern and contemporary Indian art. Established in 1954, it chronicles the trajectory of art in India across eight acres of prime New Delhi space at the India Gate Hexagon.
+      </h2>
+      <a href="collection.html" class="btn-underline reveal-up" data-link>Explore the Collection &#8599;</a>
+    </section>
+
+    <!-- FEATURED GRID -->
+    <section class="dual-gallery">
+      <div class="img-box reveal-up">
+        <img src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=1000" alt="Art 1" class="parallax-img" />
+      </div>
+      <div class="img-box reveal-up" style="margin-top: 100px;">
+        <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01988ec?q=80&w=1000" alt="Art 2" class="parallax-img" />
+      </div>
+    </section>
+
+    <!-- COLLECTION ROWS -->
+    <section class="collection-list">
+      <div class="artwork-row">
+        <div class="artwork-img reveal-left">
+          <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=1000" alt="Woman Holding a Fruit" />
+        </div>
+        <div class="artwork-content reveal-right">
+          <span class="artist-meta">Raja Ravi Varma — Late 19th Century</span>
+          <h3>Woman Holding<br />a Fruit</h3>
+          <p>A masterpiece of European naturalism combined with Indian ethos. Ravi Varma lyrically combines sensuality with innocence through masterful handling of pigment and light.</p>
+        </div>
+      </div>
+
+      <div class="artwork-row reverse">
+        <div class="artwork-img reveal-right">
+          <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1000" alt="Portrait of a Young Man" />
+        </div>
+        <div class="artwork-content reveal-left">
+          <span class="artist-meta">Amrita Sher-Gil — 1930</span>
+          <h3>Portrait of<br />a Young Man</h3>
+          <p>A testament to Sher-Gil's training at &Eacute;cole des Beaux-Arts in Paris. Her handling of pigment and psychological depth in this portrait of Boris Taslitzky is quite remarkable for an artist so young.</p>
+        </div>
+      </div>
+
+      <div class="artwork-row">
+        <div class="artwork-img reveal-left">
+          <img src="https://images.unsplash.com/photo-1579783901586-d88db74b4fe1?q=80&w=1000" alt="Bengali Woman" />
+        </div>
+        <div class="artwork-content reveal-right">
+          <span class="artist-meta">Jamini Roy — Muted Tones</span>
+          <h3>Bengali<br />Woman</h3>
+          <p>Jamini Roy rejected British academic style in favor of Bengal folk traditions. His bold lines and simplified forms created one of India's most distinctive modern visual languages.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCOVER -->
+    <section class="discover">
+      <div class="container">
+        <h4 class="section-label">Discover</h4>
+        <div class="discover-grid">
+          <a href="artists.html" data-link class="reveal-up">Rabindranath Tagore</a>
+          <a href="artists.html" data-link class="reveal-up">Gaganendranath Tagore</a>
+          <a href="artists.html" data-link class="reveal-up">Nandalal Bose</a>
+          <a href="artists.html" data-link class="reveal-up">Amrita Sher-Gil</a>
+          <a href="artists.html" data-link class="reveal-up">Jamini Roy</a>
+          <a href="artists.html" data-link class="reveal-up">Nicholas Roerich</a>
+          <a href="artists.html" data-link class="reveal-up">Benode Behari Mukherjee</a>
+          <a href="artists.html" data-link class="reveal-up">Ramkinkar Baij</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col logo-col">
+        <h2 class="footer-logo">ngma</h2>
+      </div>
+      <div class="footer-col">
+        <h5>Information</h5>
+        <p>National Gallery of Modern Art<br />Government of India<br />Ministry of Culture</p>
+        <p style="margin-top: 15px;">Jaipur House<br />Sher Shah Road<br />New Delhi</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="collection.html" data-link>Collection</a>
+        <a href="#">Restoration Lab</a>
+        <a href="#">Virtual Tour</a>
+        <a href="#">Departments</a>
+      </div>
+      <div class="footer-col">
+        <h5>Social</h5>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <a href="#">Facebook</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 National Gallery of Modern Art</span>
+      <span>Built with care in New Delhi</span>
+    </div>
+  </footer>
+
+  <!-- Lenis -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
