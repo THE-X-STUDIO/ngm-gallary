@@ -17,7 +17,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll behavior handled by Lenis */
 }
 
 body {
