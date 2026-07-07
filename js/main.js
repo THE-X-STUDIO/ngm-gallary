@@ -2,22 +2,46 @@
 
 let lenis = null;
 
-try {
-  lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smooth: true,
-  });
+// Prevent browser from restoring scroll position
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
 
-  function raf(time) {
-    if (lenis) lenis.raf(time);
+function initLenis() {
+  try {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+      autoResize: true,
+    });
+
+    // Force to top
+    lenis.scrollTo(0, { immediate: true });
+
+    function raf(time) {
+      if (lenis) lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
     requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
 
-  lenis.on('scroll', ScrollTrigger.update);
-} catch (e) {
-  console.warn('Lenis failed to initialize, using native scroll:', e);
+    // Wire Lenis events after it stabilizes
+    setTimeout(() => {
+      if (!lenis) return;
+      lenis.on('scroll', () => ScrollTrigger.update());
+      lenis.on('scroll', updateNav);
+    }, 300);
+  } catch (e) {
+    console.warn('Lenis failed to initialize, using native scroll:', e);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLenis);
+} else {
+  initLenis();
 }
 
 /* ===================== GSAP SETUP ===================== */
@@ -48,12 +72,14 @@ if (cursor) {
 
 /* ===================== NAV SCROLL EFFECT ===================== */
 
-window.addEventListener('scroll', () => {
+function updateNav() {
   const nav = document.querySelector('nav');
-  if (nav) {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  }
-});
+  if (!nav) return;
+  const y = lenis ? lenis.scroll : window.scrollY;
+  nav.classList.toggle('scrolled', y > 60);
+}
+
+window.addEventListener('scroll', updateNav);
 
 /* ===================== PAGE TRANSITIONS ===================== */
 
@@ -161,6 +187,9 @@ window.addEventListener('load', () => {
 const preloader = document.querySelector('.preloader');
 const preloaderBar = document.querySelector('.preloader-bar');
 
+// Block native scroll until preloader hides
+document.body.style.overflow = 'hidden';
+
 if (preloader && preloaderBar) {
   const progressTl = gsap.to(preloaderBar, {
     width: '100%',
@@ -180,6 +209,7 @@ if (preloader && preloaderBar) {
       ease: 'power3.out',
       onComplete: () => {
         preloader.style.display = 'none';
+        document.body.style.overflow = '';
       },
     });
   });
